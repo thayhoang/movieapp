@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+body {
+	background-color: #d4d4d4;
+}
+
+div.error404_main {
+	background:
+		url(${pageContext.request.contextPath}/images/error404.jpg)
+		no-repeat;
+	width: 950px;
+	height: 550px;
+	margin: 48px 21px 0 160px;
+	position: relative;
+}
+
+span.main_txt {
+	display: block;
+	width: 150px;
+	height: 63px;
+	position: absolute;
+	top: 223px;
+	left: 745px;
+	font-size: 13px;
+	text-align: center;
+	color: #1d1d1d;
+	padding: 2px 0 0 0;
+}
+
+span.main_txt span {
+	display: block;
+	argin: 0 0 2px 0;
+}
+</style>
+
+</head>
+<body>
+
+
+	<div class="error404_main">
+		<span class="main_txt"> <span>The page you're</span> <span>trying
+				to reach does not</span> <span>exist :(. Check the address</span>
+		</span>
+	</div>
+</body>
+</html>

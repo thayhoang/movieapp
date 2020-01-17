@@ -1,0 +1,6 @@
+	<footer>
+		<p>
+			A simple Spring MVC Project by <a
+				href="mailto:minhhoange10cn@gmail.com">minhhoange10cn@gmail.com</a>
+		</p>
+	</footer>
