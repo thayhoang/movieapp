@@ -23,12 +23,9 @@ $(document).ready(function() {
             $description = $this.attr('title');
             
             $.ajax({
-                url: $contextPath+"/user/movies/remove",
+                url: $contextPath+"/app/movie/"+$id+"/nonfav",
                 type: "POST",
                 timeout: 3000,
-                data: {
-                    'movieId' : $id
-                }, 
                 'beforeSend': function() {
                 	$('.loader_large').removeClass('hidden');
                 	$('html').not('.loader_large').addClass('dim');
@@ -39,11 +36,11 @@ $(document).ready(function() {
                 		 $this.remove();
                 		 $output = "<li id='nonfav_" + $id + "'>";
                          $output += "<figure>";
-                         $output += "<a href='"+$contextPath+"/user/movies?id=" + $id  + "'>";
+                         $output += "<a href='"+$contextPath+"/user/movie/" + $id  + "'>";
                          $output += "<img class='thumbnail' alt='" + $title + "' src='"+$contextPath+"/images-movies/" + $id + "-tn.jpg'></a>";
                          $output += "<figcaption>";
                          $output += "<div class='title'>";
-                         $output += "<a href='"+$contextPath+"/user/movies?id=" + $id  + "'>";
+                         $output += "<a href='"+$contextPath+"/user/movie/" + $id  + "'>";
                          $output += $title;
                          $output += "</a></div>";
                          $output += "<div class='description'>" + $description + "</div>";

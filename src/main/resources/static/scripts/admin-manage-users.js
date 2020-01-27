@@ -7,11 +7,11 @@ $(document).ready(function() {
 	$(document).on('click', '.insert', function() {
 		
 		$this = $(this);
-		$username = $('input.newdata[name="username"').val();
-		$password = $('input.newdata[name="password"').val();
-		$role = $('input.newdata[name="role"').val();
-		$fullName = $('input.newdata[name="fullName"').val();
-		$dob = $('input.newdata[name="dob"').val();
+		$username = $('input.newdata[name="username"]').val();
+		$password = $('input.newdata[name="password"]').val();
+		$role = $('input.newdata[name="role"]').val();
+		$fullName = $('input.newdata[name="fullName"]').val();
+		$dob = $('input.newdata[name="dob"]').val();
 		
 		var user = new Object();
 		user.username= $username;
@@ -26,7 +26,7 @@ $(document).ready(function() {
 		}
 		
 		$.ajax({
-			url : $contextPath+"/admin/manageusers/add",
+			url : $contextPath+"/admin/user/add",
 			type : "POST",
 			timeout: 3000,
 			data : user,
@@ -84,7 +84,7 @@ $(document).ready(function() {
 	        $id = $id[1];
 
 	        $.ajax({
-	        	url : $contextPath+"/admin/manageusers/delete",
+	        	url : $contextPath+"/admin/user/delete",
 				type : "POST",
 	            data: {
 	                'id' : $id,
@@ -149,7 +149,7 @@ $(document).ready(function() {
 		 		data[$thisField]=$currentVal;
 		 		
 	 			$.ajax({
-					url: $contextPath+"/admin/manageusers/update",
+					url: $contextPath+"/admin/user/update",
 					type: "POST",
 					timeout: 3000,
 					data: data, // End data

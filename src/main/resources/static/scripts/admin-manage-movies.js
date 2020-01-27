@@ -22,7 +22,7 @@ $(document).ready(function(){
         movie.trailer=$trailer;
         
         $.ajax({
-            url: $contextPath+"/admin/managemovies/add",
+            url: $contextPath+"/admin/movie/add",
             type: "POST",
         	timeout: 3000,
             data: movie,
@@ -91,7 +91,7 @@ $(document).ready(function(){
         $id = $id[1];
 
         $.ajax({
-        	url : $contextPath+"/admin/managemovies/delete",
+        	url : $contextPath+"/admin/movie/delete",
 			type : "POST",
 			timeout: 3000,
             data: {
@@ -145,7 +145,7 @@ $(document).ready(function(){
 	 		data[$thisField]=$currentVal;
 	 	
  			$.ajax({
-				url: $contextPath+"/admin/managemovies/update",
+				url: $contextPath+"/admin/movie/update",
 				type: "POST",
 				timeout: 3000,
 				data:data,

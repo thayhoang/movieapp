@@ -13,12 +13,9 @@ $(document).ready(function() {
 
         
         $.ajax({
-        	url: $contextPath+"/user/movies/add",
+        	url: $contextPath+"/app/movie/"+$id+"/fav",
             type: "POST",
             timeout: 3000,
-            data: {
-                'movieId' : $id
-            }, // End data
             'beforeSend': function(){
                 $requestRunning = true;
                 $('html').not('.loader_large').addClass('dim');
@@ -28,7 +25,7 @@ $(document).ready(function() {
             'success': function(response) {
             	if(response=='OK'){
             	 $output = "<li title='" + $description + "' id='fav_" + $id + "'>";
-                 $output += "<a href='"+$contextPath+"/user/movies?id=" + $id  + "'>";
+                 $output += "<a href='"+$contextPath+"/app/movie/" + $id  + "'>";
                  $output += $title;
                  $output += "</a></li>";                
                       
@@ -74,12 +71,9 @@ $(document).ready(function() {
         $id = $id[1];
         
         $.ajax({
-        	url: $contextPath+"/user/movies/remove",
+            url: $contextPath+"/app/movie/"+$id+"/nonfav",
         	type: "POST",
             timeout: 3000,
-            data: {
-                'movieId' : $id
-            }, // End data
             'beforeSend': function(){
                 $requestRunning = true;
                 $('html').not('.loader_large').addClass('dim');

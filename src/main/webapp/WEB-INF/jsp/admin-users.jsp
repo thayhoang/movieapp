@@ -17,9 +17,13 @@
 </head>
 
 <body>
-	<%@include file="includes/header.txt"%>
-
-
+	<header>
+		<a href="${pageContext.request.contextPath}/admin/movie">Movies</a>
+		<a href="${pageContext.request.contextPath}/admin/user">Users</a>
+		<div class="logout">
+			<a href="${pageContext.request.contextPath}/logout">Log Out</a>
+		</div>
+	</header>
 
 	<section class="admin">
 		<div class="admin_users">

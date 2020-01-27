@@ -14,7 +14,12 @@
 
 </head>
 <body>
-	<%@include file="includes/header.txt"%>
+	<header>
+		<a href="${pageContext.request.contextPath}/app">Home</a>
+		<div class="logout">
+			<a href="${pageContext.request.contextPath}/logout">Log Out</a>
+		</div>
+	</header>
 
 
 	<%@include file="includes/favs-list.txt"%>

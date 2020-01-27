@@ -14,12 +14,12 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public List<Movie> getFavs(int userId) {
-        return userDao.getFavs(userId);
+    public List<Movie> getFavs(User user) {
+        return userDao.getFavs(user.getId());
     }
 
-    public List<Movie> getNonFavs(int userId) {
-        return userDao.getNonFavs(userId);
+    public List<Movie> getNonFavs(User user) {
+        return userDao.getNonFavs(user.getId());
     }
 
     public boolean isFavorite(int userId, Integer id) {

@@ -101,7 +101,8 @@ public class UserDao {
             public User mapRow(ResultSet rs, int arg1) throws SQLException {
                 User user = new User();
                 user.setId(rs.getInt(1));
-
+                user.setUsername(rs.getString(2));
+                user.setPassword(rs.getString(3));
                 user.setRole(rs.getString(4));
                 user.setFullName(rs.getString(5));
                 return user;

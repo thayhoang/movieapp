@@ -15,7 +15,13 @@
 
 </head>
 <body>
-	<%@include file="includes/header.txt"%>
+	<header>
+		<a href="${pageContext.request.contextPath}/app">Home</a>
+		<div class="logout">
+			<a href="${pageContext.request.contextPath}/logout">Log Out</a>
+		</div>
+	</header>
+
 	<%@include file="includes/favs-list.txt"%>
 
 
@@ -30,7 +36,7 @@
 				<li id="fav_${nonfav.id}">
 					<figure>
 						<a
-							href="${pageContext.request.contextPath}/user/movies?id=${nonfav.id}"><img
+							href="${pageContext.request.contextPath}/app/movie/${nonfav.id}"><img
 							class="thumbnail" alt="Thumbnail"
 							src="${pageContext.request.contextPath}/images-movies/${nonfav.id}-tn.jpg"></a>
 						<figcaption>
@@ -41,7 +47,7 @@
 							</h3> --%>
 							<div class="title">
 								<a
-									href="${pageContext.request.contextPath}/user/movies?id=${nonfav.id}"><c:out
+									href="${pageContext.request.contextPath}/app/movie/${nonfav.id}"><c:out
 										value="${nonfav.title }" /></a>
 							</div>
 							<div class="description">
