@@ -23,7 +23,7 @@ $(document).ready(function() {
             $description = $this.attr('title');
             
             $.ajax({
-                url: $contextPath+"/app/movie/"+$id+"/nonfav",
+                url: $contextPath+"app/movie/"+$id+"/nonfav",
                 type: "POST",
                 timeout: 3000,
                 'beforeSend': function() {
@@ -36,11 +36,11 @@ $(document).ready(function() {
                 		 $this.remove();
                 		 $output = "<li id='nonfav_" + $id + "'>";
                          $output += "<figure>";
-                         $output += "<a href='"+$contextPath+"/user/movie/" + $id  + "'>";
-                         $output += "<img class='thumbnail' alt='" + $title + "' src='"+$contextPath+"/images-movies/" + $id + "-tn.jpg'></a>";
+                         $output += "<a href='"+$contextPath+"user/movie/" + $id  + "'>";
+                         $output += "<img class='thumbnail' alt='" + $title + "' src='"+$contextPath+"images-movies/" + $id + "-tn.jpg'></a>";
                          $output += "<figcaption>";
                          $output += "<div class='title'>";
-                         $output += "<a href='"+$contextPath+"/user/movie/" + $id  + "'>";
+                         $output += "<a href='"+$contextPath+"user/movie/" + $id  + "'>";
                          $output += $title;
                          $output += "</a></div>";
                          $output += "<div class='description'>" + $description + "</div>";

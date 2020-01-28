@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         
         $.ajax({
-        	url: $contextPath+"/app/movie/"+$id+"/fav",
+        	url: $contextPath+"app/movie/"+$id+"/fav",
             type: "POST",
             timeout: 3000,
             'beforeSend': function(){
@@ -25,7 +25,7 @@ $(document).ready(function() {
             'success': function(response) {
             	if(response=='OK'){
             	 $output = "<li title='" + $description + "' id='fav_" + $id + "'>";
-                 $output += "<a href='"+$contextPath+"/app/movie/" + $id  + "'>";
+                 $output += "<a href='"+$contextPath+"app/movie/" + $id  + "'>";
                  $output += $title;
                  $output += "</a></li>";                
                       
@@ -71,7 +71,7 @@ $(document).ready(function() {
         $id = $id[1];
         
         $.ajax({
-            url: $contextPath+"/app/movie/"+$id+"/nonfav",
+            url: $contextPath+"app/movie/"+$id+"/nonfav",
         	type: "POST",
             timeout: 3000,
             'beforeSend': function(){

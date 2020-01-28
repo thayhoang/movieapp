@@ -2,21 +2,13 @@ plugins {
 	id 'org.springframework.boot' version '2.1.7.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
-	id 'com.google.cloud.tools.jib' version '1.7.0'
-	id 'war'
+	id 'com.google.cloud.tools.jib' version '1.8.0'
 }
 
 group = 'com.hoangmn'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-def appName = "Hoang Nguyen movie app"
-def appVendor = "Hoang RCT, INC."
-def buildNumber = System.env.BUILD_NUMBER ? System.env.BUILD_NUMBER : "localBuildNum"
-def builtBy = System.env.BUILD_TAG ? "jenkins" : System.env.USERNAME
-def commitHashFull = System.env.GIT_COMMIT ? System.env.GIT_COMMIT : "localHashFull"
-def commitHashShort = System.env.GIT_COMMIT ? System.env.GIT_COMMIT?.take(7) : "localHashShort"
-def now = new Date().format("dd/MM/yyyy HH:mm:ss")
 
 repositories {
 	mavenCentral()
@@ -26,13 +18,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
-	implementation 'javax.servlet:jstl:1.2'
 	runtimeOnly 'com.h2database:h2'
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.22'
-}
-
-bootWar {
-	archiveName "app.war"
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
 jib {
@@ -44,7 +31,7 @@ jib {
 		}
 	}
 	to {
-		image = "thayhoang/movieapp:$buildNumber-$commitHashShort"
+		image = "thayhoang/movieapp:latest"
 		tags = ["devlatest"]
 		auth {
 			username = 'thayhoang' // Defined in 'gradle.properties'.
@@ -54,24 +41,8 @@ jib {
 
 	container {
 		ports = ['8080']
-		//jvmFlags = ['-Dlogging.config=logback-spring.xml']
-		args = [ '-v D:/test:/new1']
 		labels = [
 				maintainer: "HoangN",
-				fullCommitHash: commitHashFull,
-				buildBy: builtBy,
-				appName: appName,
-				// needed for helm charts
-				"org.label-schema.build-date": "${now.toString()}" as String,
-				"org.label-schema.image-version": "$buildNumber-$commitHashShort" as String
-		]
-		environment = [
-				appName           : appName,
-				appVendor         : appVendor,
-				builtBy           : builtBy,
-				buildDate         : "${now.toString()}" as String,
-				implementationDate: "${now.toString()}" as String,
-				versionString     : "$buildNumber.$commitHashShort" as String
 		]
 	}
 }

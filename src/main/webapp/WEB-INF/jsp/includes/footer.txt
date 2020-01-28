@@ -1,6 +1,0 @@
-	<footer>
-		<p>
-			Movie Project by Thay Hoang <a
-				href="mailto:minhhoange10cn@gmail.com">minhhoange10cn@gmail.com</a>
-		</p>
-	</footer>

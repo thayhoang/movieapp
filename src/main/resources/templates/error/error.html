@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Error Page</title>
+<style type="text/css">
+.error {
+	text-align: center;
+}
+
+.thebiglebowski {
+	width: 720px;
+	height: 406px;
+	margin: 20px auto;
+	display: block;
+}
+
+body {
+	/* background-color: #a9a9a9; */
+	background-color: #d4d4d4;
+}
+</style>
+</head>
+<body>
+	<img class="thebiglebowski" alt="The Big Lebowski" th:src="@{/images/thebiglebowski.jpg}">
+	<div class="error">
+		<h1>Ooop! Some kind of error has occurred</h1>
+	</div>
+</body>
+</html>

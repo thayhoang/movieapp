@@ -1,0 +1,74 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+    <title>Movie App Project</title>
+
+    <script th:src="@{/scripts/jquery/jquery-1.11.1.min.js}"></script>
+
+    <script th:src="@{/scripts/jquery/jquery-ui-1.11.0/jquery-ui.min.js}"></script>
+
+    <script th:inline="javascript" type="text/javascript">
+        var $contextPath = /*[[@{/}]]*/ '';
+    </script>
+
+    <script th:src="@{/scripts/user-add-favs.js}"></script>
+
+</head>
+
+<body>
+	<header>
+		<a th:href="@{/app}">Home</a>
+		<div class="logout">
+			<a th:href="@{/logout}">Log Out</a>
+		</div>
+	</header>
+
+	<script th:src="@{/scripts/user-remove-favs.js}"></script>
+
+	<nav class="favs_list">
+		<h2>Favourites</h2>
+		<ul class="favs">
+			<li th:each="fav : ${favs}" th:id="|fav_${fav.id}|" th:title="${fav.description}">
+				<a th:href="@{|/app/movie/${fav.id}|}" th:text="${fav.title }"></a></li>
+		</ul>
+		<div class='trash'></div>
+	</nav>
+
+
+	<section class="movie_list">
+		<h2 th:text="|Hi, ${session.user.fullName}|"> </h2>
+		<p class="welcome">Here are some movies you might like. Click on the heart icon to add them to your favorites list.</p>
+		<ul class="non_favs">
+			<li th:each="nonfav : ${nonfavs} " th:id="|fav_${nonfav.id}|">
+				<figure>
+					<a th:href="@{|/app/movie/${nonfav.id}|}">
+						<img class="thumbnail" alt="Thumbnail" th:src="@{|/images-movies/${nonfav.id}-tn.jpg|}">
+					</a>
+					<figcaption>
+						<div class="title">
+							<a th:href="@{|/app/movie/${nonfav.id}|}" th:text="${nonfav.title }"></a>
+						</div>
+						<div class="description" th:text="${nonfav.description }">
+
+						</div>
+						<div class="add">
+
+						</div>
+					</figcaption>
+				</figure>
+			</li>
+		</ul>
+	</section>
+
+	<div class='loader_large hidden'></div>
+
+
+	<footer>
+		<p>
+			Movie Project by Thay Hoang <a href="mailto:minhhoange10cn@gmail.com">minhhoange10cn@gmail.com</a>
+		</p>
+	</footer>
+</body>
+</html>

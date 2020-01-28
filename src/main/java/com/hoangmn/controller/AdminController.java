@@ -49,32 +49,5 @@ public class AdminController {
 				: "This action cannot be performed at this time";
 	}
 */
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String showUsers(Model model) {
-		List<User> users = userDao.getUsers();
-		model.addAttribute("users", users);
-		return "admin-users";
-	}
-
-	@RequestMapping(value = "/user/add", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	@ResponseBody
-	public String addUser(User user) {
-		int key = userDao.save(user);
-		return key > 0 ? "" + key : "Error";
-	}
-
-	@RequestMapping(value = "/manageusers/delete", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	@ResponseBody
-	public String deleteUser(int id) {
-		return userDao.delete(id) > 0 ? "OK" : "Error";
-	}
-
-	/*@RequestMapping(value = "/manageusers/update", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	@ResponseBody
-	public String updateUser(String fieldName, User user) {
-		return userDAO.update(fieldName, user) > 0 ? "OK"
-				: "This action cannot be performed at this time";
-	}
-*/
 
 }

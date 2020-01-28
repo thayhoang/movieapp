@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hoangmn.model.User;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AuthenticationController {

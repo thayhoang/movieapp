@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+
+	<title>Movie App Project</title>
+
+	<script th:src="@{/scripts/jquery/jquery-1.11.1.min.js}"></script>
+
+	<script th:src="@{/scripts/jquery/jquery-ui-1.11.0/jquery-ui.min.js}"></script>
+
+	<script th:inline="javascript" type="text/javascript">
+		var $contextPath = /*[[@{/}]]*/ '';
+	</script>
+
+	<script th:src="@{/scripts/admin-manage-movies.js}"></script>
+
+</head>
+<body>
+	<header>
+		<a th:href="@{/admin/movie}">Home</a>
+		<div class="logout">
+			<a th:href="@{/logout}">Log Out</a>
+		</div>
+	</header>
+
+	<section class="admin">
+		<div class="admin_movies">
+			<table class="admin_table">
+				<tr>
+					<th class="data_col">Title</th>
+					<th class="data_col description">Description</th>
+					<th class="data_col trailer">Trailer</th>
+					<th class="admin_col">Insert/Delete</th>
+				</tr>
+
+				<tr th:each="movie: ${movies}" th:id='|movie_${movie.id}|' class="datarow">
+					<td><input class="data" type="text" name="title" th:value="${movie.title}"></td>
+					<td><input class="data description" type="text" name="description" th:value="${movie.description }"></td>
+					<td><input class="data trailer" type="text" name="trailer" th:value="${movie.trailer }"></td>
+					<td class="deletecell"><div class="delete hidden"></div></td>
+				</tr>
+
+				<tr class='newdatarow'>
+					<td><input class='newdata' type='text' name='title' value=''></td>
+					<td><input class='newdata description' type='text' name='description' value=''></td>
+					<td><input class='newdata' type='text' name='trailer' value=''></td>
+					<td class='insertcell'><div class='insert'></div></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+	<footer>
+		<p>
+			Movie Project by Thay Hoang <a href="mailto:minhhoange10cn@gmail.com">minhhoange10cn@gmail.com</a>
+		</p>
+	</footer>
+</body>
+</html>

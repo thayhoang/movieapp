@@ -87,71 +87,6 @@ header a {
 	text-decoration: none;
 	color: #8e1720;
 }
-
-/* .select_users {
-	position: absolute;
-	right: 65px;
-	top: 15px;
-}
-
-.select_users h2 a {
-	font-weight: bold;
-	font-size: 0.9em;
-	color: black;
-	text-decoration: none;
-}
-
-.select_users h2 a:hover {
-	color: #A32824;
-}
-
-ul.users_menu,ul.admin_menu {
-	position: absolute;
-	right: 0;
-	border-left: 1px solid gray;
-	border-bottom: 1px solid gray;
-	background-color: #F1F1F1;
-}
-
-ul.users_menu {
-	width: 200px;
-}
-
-ul.admin_menu {
-	width: 150px;
-}
-
-ul.users_menu a,ul.admin_menu a {
-	text-decoration: none;
-	color: black;
-}
-
-.users_menu li a,.admin_menu li a {
-	font-size: 0.75em;
-	padding: 5px;
-	display: block;
-}
-
-ul.users_menu li a:hover,.admin_menu li a:hover {
-	background-color: #A32824;
-	color: white;
-}
-
-ul.users_menu li.logout {
-	border-top: 1px solid grey;
-	text-transform: uppercase;
-}
-
-ul.users_menu li.logout a {
-	background-color: white;
-	color: black;
-}
-
-ul.users_menu li.logout a:hover {
-	background-color: black;
-	color: white;
-}
- */
 .admin_users,.admin_movies {
 	margin-top: 40px;
 	margin-left: 50px;
@@ -270,15 +205,6 @@ ul.favs li a:hover {
 	padding-bottom: 10px;
 }
 
-/* .movie_list h3 a {
-	font-size: 1.1em;
-	color: #438BC5;
-	font-weight: bold;
-	display: inline-block;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	text-decoration: none;
-} */
 .movie_list .title {
 	text-align: justify;
 	/* background-color: blue; */
@@ -294,11 +220,6 @@ ul.favs li a:hover {
 	margin-bottom: 0.5em;
 	text-decoration: none;
 }
-
-/* .movie_list h3 a:hover {
-	text-decoration: underline;
-}
- */
 .movie_list .title a:hover {
 	text-decoration: underline;
 }

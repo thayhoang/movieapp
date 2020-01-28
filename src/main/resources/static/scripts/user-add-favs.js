@@ -18,7 +18,7 @@ $(document).ready(function() {
         $title = $this.siblings('.title').text();
 
         $.ajax({
-        	url: $contextPath+"/app/movie/"+$id+"/fav",
+        	url: $contextPath+"app/movie/"+$id+"/fav",
             type: "POST",
             timeout: 3000,
             'beforeSend': function(){
@@ -31,7 +31,7 @@ $(document).ready(function() {
             	if(response=='OK'){
             		 $this_li.remove();
             		 $output = "<li title='" + $description + "' id='fav_" + $id + "'>";
-                     $output += "<a href='"+$contextPath+"/app/movie/" + $id  + "'>";
+                     $output += "<a href='"+$contextPath+"app/movie/" + $id  + "'>";
                      $output += $title;
                      $output += "</a></li>";
 

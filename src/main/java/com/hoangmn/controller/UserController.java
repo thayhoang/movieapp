@@ -46,7 +46,7 @@ public class UserController {
         model.addAttribute("favs", favs);
         model.addAttribute("movie", movie);
         model.addAttribute("isfav", isFav);
-        return "user-movie-single";
+        return "user-movie";
     }
 
     @RequestMapping(value = "/movie/{id}/nonfav", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")

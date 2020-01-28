@@ -15,8 +15,8 @@ public class AuthorizationFilter implements Filter {
 		HttpServletResponse hs = (HttpServletResponse) response;
 
 		User user = (User) hr.getSession().getAttribute("user");
-		if ((hr.getRequestURI().startsWith("/admin") && Util.isAdmin(user)) ||
-				(hr.getRequestURI().startsWith("/app") && Util.isUser(user))) {
+		if ((hr.getServletPath().startsWith("/admin") && Util.isAdmin(user)) ||
+				(hr.getServletPath().startsWith("/app") && Util.isUser(user))) {
 			chain.doFilter(request, response);
 		} else {
 			// Send not allow

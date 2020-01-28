@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+
+	<title>Movie App Project</title>
+
+	<script th:src="@{/scripts/jquery/jquery-1.11.1.min.js}"></script>
+
+	<script th:src="@{/scripts/jquery/jquery-ui-1.11.0/jquery-ui.min.js}"></script>
+
+	<script th:inline="javascript" type="text/javascript">
+		var $contextPath = /*[[@{/}]]*/ '';
+	</script>
+
+	<script th:src="@{/scripts/user-add-remove-favs-single.js}"></script>
+
+</head>
+<body>
+	<header>
+		<a th:href="@{/app}">Home</a>
+		<div class="logout">
+			<a th:href="@{/logout}">Log Out</a>
+		</div>
+	</header>
+
+
+	<script th:src="@{/scripts/user-remove-favs.js}"></script>
+
+	<nav class="favs_list">
+		<h2>Favourites</h2>
+		<ul class="favs">
+			<li th:each="fav : ${favs}" th:id="|fav_${fav.id}|" th:title="${fav.description}">
+				<a th:href="@{|/app/movie/${fav.id}|}" th:text="${fav.title }"></a></li>
+		</ul>
+		<div class='trash'></div>
+	</nav>
+
+	<section class="movie_single" th:id="|single_${movie.id}|">
+		<iframe class="movie_player" th:src="${movie.trailer}"></iframe>
+		<h3 class="title" th:text="${movie.title }">
+
+		</h3>
+		<div class="actions">
+			<div th:id="|single_${movie.id}|" th:class="${isfav} ? 'add_remove remove' : 'add_remove add' ">
+				<p th:text="${isfav} ? 'Remove from favorites' : 'Add to favorites'"></p>
+			</div>
+		</div>
+		<p class="description" th:text="${movie.description }">
+
+		</p>
+	</section>
+
+	<div class='loader_large hidden'></div>
+
+	<footer>
+		<p>
+			Movie Project by Thay Hoang <a href="mailto:minhhoange10cn@gmail.com">minhhoange10cn@gmail.com</a>
+		</p>
+	</footer>
+</body>
+</html>

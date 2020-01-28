@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title></title>
-<style type="text/css">
+<style type="text/css" th:inline="text">
 body {
 	background-color: #d4d4d4;
 }
 
 div.error404_main {
 	background:
-		url(${pageContext.request.contextPath}/images/error404.jpg)
+		url([[@{/images/error404.jpg}]])
 		no-repeat;
 	width: 950px;
 	height: 550px;
