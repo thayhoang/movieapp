@@ -22,6 +22,12 @@ public interface MovieMapper {
     @Delete("DELETE FROM movies where id = ?")
     int delete(@Param("id") int id);
 
+    @Update("UPDATE movie SET title = coalesce (#{title}, title)," +
+                             " description = coalesce (#{description}, description), " +
+                             " trailer = coalesce (#{trailer}, trailer) " +
+                             " WHERE id = #{id}")
+    int update(Movie movie);
+
     @Select("SELECT * FROM movie where id IN (SELECT movieId FROM favorite where userId = #{userId} )")
     List<Movie> getFavs(int userId);
 
@@ -39,4 +45,5 @@ public interface MovieMapper {
 
     @Select("SELECT * FROM users WHERE username = #{username} and password = #{password}")
     User getUser(String username, String password);
+
 }

@@ -25,7 +25,7 @@ $(document).ready(function() {
             $.ajax({
                 url: $contextPath+"app/movie/"+$id+"/nonfav",
                 type: "POST",
-                timeout: 3000,
+                timeout: 30000,
                 'beforeSend': function() {
                 	$('.loader_large').removeClass('hidden');
                 	$('html').not('.loader_large').addClass('dim');

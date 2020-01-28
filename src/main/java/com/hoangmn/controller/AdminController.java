@@ -1,6 +1,5 @@
 package com.hoangmn.controller;
 
-import java.util.List;
 import com.hoangmn.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +18,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/movie", method = RequestMethod.GET)
 	public String showMovies(Model model) {
-		List<Movie> movies = movieService.getAll();
-		model.addAttribute("movies", movies);
+		model.addAttribute("movies", movieService.getAll());
 		return "admin-movies";
 	}
 
@@ -37,12 +35,12 @@ public class AdminController {
 		return movieService.delete(id) > 0 ? "OK" : "Error";
 	}
 
-/*	@RequestMapping(value = "/managemovies/update", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/movie/update", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	@ResponseBody
-	public String updateMovie(String fieldName, Movie movie) {
-		return movieDAO.update(fieldName, movie) > 0 ? "OK"
-				: "This action cannot be performed at this time";
+	public String updateMovie(Movie movie) {
+		System.out.printf("");
+		return movieService.update(movie) > 0 ? "OK" : "Error";
 	}
-*/
+
 
 }

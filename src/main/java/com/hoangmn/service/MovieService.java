@@ -55,4 +55,8 @@ public class MovieService {
     public User getUser(String username, String password) {
         return movieMapper.getUser(username, password);
     }
+
+    public int update(Movie movie) {
+        return movieMapper.update(movie);
+    }
 }

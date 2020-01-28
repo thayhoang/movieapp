@@ -24,7 +24,7 @@ $(document).ready(function(){
         $.ajax({
             url: $contextPath+"admin/movie/add",
             type: "POST",
-        	timeout: 3000,
+        	timeout: 30000,
             data: movie,
             'beforeSend' : function() {
                 $this.removeClass('insert').addClass('loader_small');
@@ -93,7 +93,7 @@ $(document).ready(function(){
         $.ajax({
         	url : $contextPath+"admin/movie/delete",
 			type : "POST",
-			timeout: 3000,
+			timeout: 30000,
             data: {
                 'id' : $id,
             }, // End data
@@ -141,13 +141,12 @@ $(document).ready(function(){
  			$thisField = $this.attr('name');
  			var data = {};
 	 		data['id'] = $id;
-	 		data['fieldName']=$thisField;
 	 		data[$thisField]=$currentVal;
 	 	
  			$.ajax({
 				url: $contextPath+"admin/movie/update",
 				type: "POST",
-				timeout: 3000,
+				timeout: 30000,
 				data:data,
 			'beforeSend' : function() {
 					$('.success').removeClass('success').addClass('delete hidden');

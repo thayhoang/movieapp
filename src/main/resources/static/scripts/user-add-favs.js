@@ -20,7 +20,7 @@ $(document).ready(function() {
         $.ajax({
         	url: $contextPath+"app/movie/"+$id+"/fav",
             type: "POST",
-            timeout: 3000,
+            timeout: 30000,
             'beforeSend': function(){
                 $requestRunning = true;
                 $('.highlight').removeClass('highlight');
