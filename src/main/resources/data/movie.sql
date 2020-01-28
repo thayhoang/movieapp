@@ -1,4 +1,4 @@
-INSERT INTO movies VALUES
+INSERT INTO movie VALUES
 (1,'Forrest Gump','Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him.','//www.youtube.com/embed/jvcex-loSJ4'),
 (2,'American Beauty ','Lester Burnham, a depressed suburban father in a mid-life crisis, decides to turn his hectic life around after becoming infatuated with his daughter''s attractive friend. ','//www.youtube.com/embed/6Q3ltyPJJMQ'),
 (3,'Once Upon a Time in America','A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan over thirty years later, where he once again must confront the ghosts and regrets of his old life.','//www.youtube.com/embed/mzhX2PD6Srw'),

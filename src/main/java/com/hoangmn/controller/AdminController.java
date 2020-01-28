@@ -1,8 +1,7 @@
 package com.hoangmn.controller;
 
 import java.util.List;
-import com.hoangmn.dao.MovieDao;
-import com.hoangmn.dao.UserDao;
+import com.hoangmn.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,21 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.hoangmn.model.Movie;
-import com.hoangmn.model.User;
 
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
 
 	@Autowired
-	private MovieDao movieDao;
-
-	@Autowired
-	private UserDao userDao;
+	private MovieService movieService;
 
 	@RequestMapping(value = "/movie", method = RequestMethod.GET)
 	public String showMovies(Model model) {
-		List<Movie> movies = movieDao.getMovies();
+		List<Movie> movies = movieService.getAll();
 		model.addAttribute("movies", movies);
 		return "admin-movies";
 	}
@@ -32,14 +27,14 @@ public class AdminController {
 	@RequestMapping(value = "/movie/add", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	@ResponseBody
 	public String addMovie(Movie movie) {
-		int key = movieDao.save(movie);
-		return key > 0 ? "" + key : "Error";
+		movieService.save(movie);
+		return movie.getId() > 0 ? "" + movie.getId() : "Error";
 	}
 
 	@RequestMapping(value = "/movie/delete", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	@ResponseBody
 	public String deleteMovie(int id) {
-		return movieDao.delete(id) > 0 ? "OK" : "Error";
+		return movieService.delete(id) > 0 ? "OK" : "Error";
 	}
 
 /*	@RequestMapping(value = "/managemovies/update", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")

@@ -2,21 +2,20 @@ package com.hoangmn.controller;
 
 import javax.servlet.http.HttpSession;
 
+import com.hoangmn.service.MovieService;
 import com.hoangmn.util.Util;
-import com.hoangmn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hoangmn.model.User;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AuthenticationController {
 
     @Autowired
-    private UserService userService;
+    private MovieService movieService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
@@ -25,12 +24,17 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String authenticate(String username, String password, HttpSession session) {
-        User user = userService.getUser(username, password);
-        if (Util.isUser(user)) {
+        User user = movieService.getUser(username, password);
+        if (Util.isValidUser(user)) {
             session.setAttribute("user", user);
+        }
+        String requestURI = (String) session.getAttribute("requestURI");
+        if (requestURI != null && !requestURI.isEmpty() && !requestURI.equals("/")) {
+            session.removeAttribute("requestURI");
+            return "redirect:" + requestURI;
+        } else if (Util.isUser(user)) {
             return "redirect:/app";
         } else if (Util.isAdmin(user)) {
-            session.setAttribute("user", user);
             return "redirect:/admin/movie";
         }
         return "redirect:/login";

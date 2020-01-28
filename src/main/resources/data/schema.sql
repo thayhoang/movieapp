@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS favorites;
+DROP TABLE IF EXISTS favorite;
 
-CREATE TABLE favorites (
+CREATE TABLE favorite (
   userId INTEGER DEFAULT NULL,
   movieId INTEGER DEFAULT NULL
 );
 
-DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS movie;
 
-CREATE TABLE movies (
+CREATE TABLE movie (
   id INTEGER auto_increment,
   title varchar(100) DEFAULT NULL,
   description varchar(250) DEFAULT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE movies (
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user;
 
 CREATE TABLE users (
   id INTEGER auto_increment,

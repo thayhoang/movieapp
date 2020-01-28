@@ -21,7 +21,7 @@ public class CustomErrorController implements ErrorController {
                 return "error/error404";
             }
         }
-        return "error";
+        return "error/error";
     }
 
     @Override

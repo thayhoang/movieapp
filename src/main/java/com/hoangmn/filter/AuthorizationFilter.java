@@ -19,7 +19,7 @@ public class AuthorizationFilter implements Filter {
 				(hr.getServletPath().startsWith("/app") && Util.isUser(user))) {
 			chain.doFilter(request, response);
 		} else {
-			// Send not allow
+			hs.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Not Allow");
 		}
 	}
 

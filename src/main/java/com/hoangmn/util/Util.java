@@ -21,4 +21,12 @@ public class Util {
         return false;
     }
 
+    public static boolean isValidUser(User user) {
+        if (user != null && user.getRole() != null &&
+                (user.getRole().equals(ROLE_USER) || user.getRole().equals(ROLE_ADMIN)) ) {
+            return true;
+        }
+        return false;
+    }
+
 }
