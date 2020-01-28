@@ -19,7 +19,7 @@ public interface MovieMapper {
     @Options(useGeneratedKeys=true, keyProperty="id")
     int save(Movie movie);
 
-    @Delete("DELETE FROM movies where id = ?")
+    @Delete("DELETE FROM movie where id = #{id}")
     int delete(@Param("id") int id);
 
     @Update("UPDATE movie SET title = coalesce (#{title}, title)," +
