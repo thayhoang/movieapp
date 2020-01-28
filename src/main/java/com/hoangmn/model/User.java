@@ -16,32 +16,6 @@ public class User implements Serializable {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dob;
 
-    public User() {
-
-    }
-
-    public User(String username, String password, String role, String fullName, Date dob) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.fullName = fullName;
-        this.dob = dob;
-    }
-
-    public User(int id, String username, String password, String role, String fullName, Date dob) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.fullName = fullName;
-        this.dob = dob;
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
     public int getId() {
         return id;
     }

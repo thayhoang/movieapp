@@ -9,22 +9,6 @@ public class Movie implements Serializable {
     private String description;
     private String trailer;
 
-    public Movie() {
-    }
-
-    public Movie(int id, String title, String description, String trailer) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.trailer = trailer;
-    }
-
-    public Movie(String title, String description, String trailer) {
-        this.title = title;
-        this.description = description;
-        this.trailer = trailer;
-    }
-
     public int getId() {
         return id;
     }
